@@ -276,12 +276,16 @@
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 107, 157, 0.2);
             border-radius: 28px;
-            padding: 32px 28px;
+            padding: 24px 20px;
             position: relative;
             z-index: 1;
             box-shadow: inset 0 0 40px rgba(255, 107, 157, 0.05), var(--glow-pink);
-            max-width: 380px;
+            max-width: 360px;
             width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            box-sizing: border-box;
         }
 
         .msg-label {
@@ -294,9 +298,10 @@
 
         .msg-text {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            line-height: 1.7;
+            font-size: 15px;
+            line-height: 1.8;
             color: rgba(255, 255, 255, 0.92);
+            word-break: break-word;
         }
 
         .msg-text em {
@@ -1184,6 +1189,120 @@
                 pointer-events: none;
             }
         }
+
+        /* ── PERSONALITY SCRATCH SECTION ── */
+        #personality {
+            background: radial-gradient(ellipse at 50% 30%, #200045 0%, #0d0618 70%);
+        }
+
+        .personality-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 340px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .p-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 107, 157, 0.18);
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Photo row */
+        .p-photo-wrap {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #2d1050, #1a0030);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .p-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .p-photo-emoji {
+            font-size: 64px;
+            filter: drop-shadow(0 0 16px rgba(255, 107, 157, 0.6));
+            animation: floatBounce 3s ease-in-out infinite;
+            position: absolute;
+        }
+
+        .p-photo-emoji.hidden {
+            display: none;
+        }
+
+        /* Scratch layer sits ON TOP of the photo */
+        .p-scratch-wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 180px;
+            border-radius: 24px 24px 0 0;
+            overflow: hidden;
+            pointer-events: auto;
+        }
+
+        .p-canvas {
+            position: absolute;
+            inset: 0;
+            cursor: crosshair;
+            touch-action: none;
+            border-radius: 24px 24px 0 0;
+        }
+
+        .p-cover-label {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+            font-family: 'DM Sans', sans-serif;
+            transition: opacity 0.4s;
+        }
+
+        .p-cover-label.hidden {
+            opacity: 0;
+        }
+
+        /* Text reveal below */
+        .p-reveal-text {
+            padding: 16px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .p-tag {
+            font-family: 'Dancing Script', cursive;
+            font-size: 22px;
+            color: var(--pink);
+        }
+
+        .p-reveal-text p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.75);
+        }
     </style>
 </head>
 
@@ -1261,19 +1380,21 @@
         </section>
 
         <!-- ★ SECTION 2: MESSAGE ★ -->
-        <section class="reel" id="message">
+        <section class="reel" id="message" style="padding:32px 20px;">
             <div class="msg-card" data-reveal="flip" data-delay="1">
-                <div class="msg-label">✦ A message from the heart</div>
+                <div class="msg-label">✦ Happiest Birthday, Moyee 🎂</div>
                 <p class="msg-text">
-                    To my absolute <em>best friend</em> in this whole universe —<br><br>
-                    Today is all about YOU. Your laugh, your light, your beautiful soul that makes every single day
-                    brighter just by existing. 🌸<br><br>
-                    Thank you for being <em>my person</em>. My 3am confidante, my hype girl, my forever panda friend. 🐼
+                    Honestly… life became way less boring after you came into it 😄<br><br>
+                    You are that one person who can act <em>mature for 2 minutes</em> and then suddenly become
+                    completely <em>chaotic</em> 🐼<br><br>
+                    But sach mein… you deserve all the happiness, peace, love, success, chocolates, pandas and soft hugs
+                    in this world 🌸<br><br>
+                    Stay strong like a <em>Cadet</em>. Stay cute like a <em>panda</em>. Stay annoying like always 💜
                 </p>
                 <div class="hearts-row">
-                    <span>💖</span><span>🌸</span><span>✨</span>
+                    <span>💖</span><span>🐼</span><span>✨</span>
                 </div>
-                <p class="msg-sig">— Your best friend, always 💌</p>
+                <p class="msg-sig">— with all the love, Sam 💌</p>
             </div>
         </section>
 
@@ -1281,37 +1402,114 @@
         <section class="reel" id="gallery" style="height:auto;min-height:100vh;">
             <div class="sec-label" data-reveal="down" data-delay="1">✦ Our memories</div>
             <h2 class="sec-title" data-reveal="blur" data-delay="2">Friendship Reels 🎞️</h2>
-            <div class="polaroid-grid">
-                <div class="polaroid polaroid-glow" data-reveal="spin" data-delay="2"
+            <div class="polaroid-grid" style="grid-template-columns:1fr;max-width:300px;">
+                <div class="polaroid polaroid-glow" data-reveal="spin" data-delay="2" style="transform:rotate(-1.5deg)"
                     onclick="openMemory(this, '🌸', 'First meet!', 'Remember the first time we met? Absolute chaos and I loved every second 💖')">
-                    <div class="polaroid-img">🌸</div>
+                    <div class="polaroid-img" id="photo-1">
+                        <img src="image1.png" alt="Memory 1"
+                            style="width:100%;height:100%;object-fit:cover;border-radius:10px;" id="img-1">
+                    </div>
                     <div class="polaroid-caption">First meet!</div>
                 </div>
-                <div class="polaroid" data-reveal="spin" data-delay="3"
+                <div class="polaroid" data-reveal="spin" data-delay="3" style="transform:rotate(1.5deg)"
                     onclick="openMemory(this, '🎤', 'Singing queens', 'Our karaoke nights are UNMATCHED. The world isn\'t ready for us 🎵')">
-                    <div class="polaroid-img">🎤</div>
+                    <div class="polaroid-img" id="photo-2">
+                        <img src="image2.png" alt="Memory 2"
+                            style="width:100%;height:100%;object-fit:cover;border-radius:10px;" id="img-2">
+                    </div>
                     <div class="polaroid-caption">Singing queens</div>
                 </div>
-                <div class="polaroid" data-reveal="spin" data-delay="3"
-                    onclick="openMemory(this, '🍕', 'Late night bites', 'Midnight pizza runs are sacred. This is non-negotiable 🍕✨')">
-                    <div class="polaroid-img">🍕</div>
-                    <div class="polaroid-caption">Late night bites</div>
-                </div>
-                <div class="polaroid polaroid-glow" data-reveal="spin" data-delay="4"
-                    onclick="openMemory(this, '🌙', 'Stargazing vibes', '3am talks under the stars — those conversations changed my life 🌙')">
-                    <div class="polaroid-img">🌙</div>
-                    <div class="polaroid-caption">Stargazing vibes</div>
-                </div>
-                <div class="polaroid" data-reveal="spin" data-delay="4"
-                    onclick="openMemory(this, '🐼', 'Panda energy', 'You and panda — same energy, same vibe, same perfect chaos 🐼')">
-                    <div class="polaroid-img">🐼</div>
-                    <div class="polaroid-caption">Panda energy</div>
-                </div>
-                <div class="polaroid polaroid-glow" data-reveal="spin" data-delay="5"
+                <div class="polaroid polaroid-glow" data-reveal="spin" data-delay="4" style="transform:rotate(-1deg)"
                     onclick="openMemory(this, '💖', 'Us, always', 'Through every storm and every laugh — us, always. No ending to this one 💖')">
-                    <div class="polaroid-img">💖</div>
+                    <div class="polaroid-img" id="photo-3">
+                        <img src="image3.png" alt="Memory 3"
+                            style="width:100%;height:100%;object-fit:cover;border-radius:10px;" id="img-3">
+                    </div>
                     <div class="polaroid-caption">Us, always 💖</div>
                 </div>
+            </div>
+            <p style="font-size:11px;color:rgba(255,255,255,0.25);margin-top:16px;letter-spacing:1px;text-align:center;"
+                data-reveal="up" data-delay="5">✦ Tap a photo to open memory ✦</p>
+        </section>
+
+        <!-- ★ SECTION 3.5: HER PERSONALITY ★ -->
+        <section class="reel" id="personality" style="height:auto;min-height:100vh;padding:50px 20px 60px;">
+            <div class="sec-label" data-reveal="down" data-delay="1">✦ Who is Moyee?</div>
+            <h2 class="sec-title" data-reveal="blur" data-delay="2">Scratch to Discover Her ✨</h2>
+            <div class="personality-list">
+
+                <div class="p-card" data-reveal="up" data-delay="2">
+                    <div class="p-photo-wrap">
+                        <img src="image1.png" alt="Cute side" class="p-photo" id="pimg-1" style="display:block;">
+                    </div>
+                    <div class="p-scratch-wrap">
+                        <canvas class="p-canvas" data-index="0"></canvas>
+                        <div class="p-cover-label">Scratch me ✨</div>
+                    </div>
+                    <div class="p-reveal-text">
+                        <span class="p-tag">Cute 🌸</span>
+                        <p>The kind of cute that makes everything around her feel softer and warmer 💕</p>
+                    </div>
+                </div>
+
+                <div class="p-card" data-reveal="up" data-delay="3">
+                    <div class="p-photo-wrap">
+                        <img src="image2.png" alt="Pagal side" class="p-photo" id="pimg-2" style="display:block;">
+                    </div>
+                    <div class="p-scratch-wrap">
+                        <canvas class="p-canvas" data-index="1"></canvas>
+                        <div class="p-cover-label">Scratch me ✨</div>
+                    </div>
+                    <div class="p-reveal-text">
+                        <span class="p-tag">Pagal 🤪</span>
+                        <p>Mature for exactly 2 minutes, then completely unhinged — and honestly that's the best part 😂
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-card" data-reveal="up" data-delay="4">
+                    <div class="p-photo-wrap">
+                        <img src="image3.png" alt="Cadet side" class="p-photo" id="pimg-3" style="display:block;">
+                    </div>
+                    <div class="p-scratch-wrap">
+                        <canvas class="p-canvas" data-index="2"></canvas>
+                        <div class="p-cover-label">Scratch me ✨</div>
+                    </div>
+                    <div class="p-reveal-text">
+                        <span class="p-tag">Cadet 🎖️</span>
+                        <p>Strong, disciplined, brave — she wears it all with grace. A true cadet through and through 💪
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-card" data-reveal="up" data-delay="5">
+                    <div class="p-photo-wrap">
+                        <img src="image4.png" alt="Lovely side" class="p-photo" id="pimg-4" style="display:block;">
+                    </div>
+                    <div class="p-scratch-wrap">
+                        <canvas class="p-canvas" data-index="3"></canvas>
+                        <div class="p-cover-label">Scratch me ✨</div>
+                    </div>
+                    <div class="p-reveal-text">
+                        <span class="p-tag">Lovely 💖</span>
+                        <p>One of the softest, most beautiful souls. Her smile? It literally heals people 🌷</p>
+                    </div>
+                </div>
+
+                <div class="p-card" data-reveal="up" data-delay="6">
+                    <div class="p-photo-wrap">
+                        <img src="image5.png" alt="Caring side" class="p-photo" id="pimg-5" style="display:block;">
+                    </div>
+                    <div class="p-scratch-wrap">
+                        <canvas class="p-canvas" data-index="4"></canvas>
+                        <div class="p-cover-label">Scratch me ✨</div>
+                    </div>
+                    <div class="p-reveal-text">
+                        <span class="p-tag">Caring 🤗</span>
+                        <p>Always there — for random talks, emotional support, making every memory feel special 🌙</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -1740,19 +1938,89 @@
             setTimeout(launchConfetti, 800);
         }
 
-        // ── POLAROID HOVER (touch) ──
-        document.querySelectorAll('.polaroid').forEach((p, i) => {
-            p.addEventListener('touchstart', () => {
-                p.style.transform = `scale(1.05) rotate(${i % 2 === 0 ? '-1deg' : '1deg'})`;
-                p.style.boxShadow = '0 16px 48px rgba(255,107,157,0.4)';
-                p.style.zIndex = '10';
+
+        // ── PERSONALITY SCRATCH CARDS ──
+        const pConfigs = [
+            { grad: ['#be185d', '#7c3aed'], label: '✨ Cute 🌸' },
+            { grad: ['#7c3aed', '#ec4899'], label: '✨ Pagal 🤪' },
+            { grad: ['#1d4ed8', '#7c3aed'], label: '✨ Cadet 🎖️' },
+            { grad: ['#db2777', '#a21caf'], label: '✨ Lovely 💖' },
+            { grad: ['#059669', '#7c3aed'], label: '✨ Caring 🤗' },
+        ];
+
+        function initPersonalityScratch() {
+            document.querySelectorAll('.p-canvas').forEach((canvas, idx) => {
+                const wrap = canvas.closest('.p-scratch-wrap');
+                const card = canvas.closest('.p-card');
+                const photoWrap = card.querySelector('.p-photo-wrap');
+                const coverLabel = wrap.querySelector('.p-cover-label');
+                const cfg = pConfigs[idx];
+
+                // size canvas to photo wrap
+                const W = photoWrap.offsetWidth || 340;
+                const H = 180;
+                canvas.width = W; canvas.height = H;
+
+                const ctx = canvas.getContext('2d');
+                const grad = ctx.createLinearGradient(0, 0, W, H);
+                grad.addColorStop(0, cfg.grad[0]);
+                grad.addColorStop(1, cfg.grad[1]);
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, W, H);
+
+                // label text on scratch layer
+                ctx.fillStyle = 'rgba(255,255,255,0.45)';
+                ctx.font = '600 13px DM Sans, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(cfg.label, W / 2, H / 2);
+
+                let scraping = false;
+                let done = false;
+
+                function getXY(e) {
+                    const r = canvas.getBoundingClientRect();
+                    if (e.touches) return { x: e.touches[0].clientX - r.left, y: e.touches[0].clientY - r.top };
+                    return { x: e.clientX - r.left, y: e.clientY - r.top };
+                }
+
+                function scrape(e) {
+                    e.preventDefault(); e.stopPropagation();
+                    if (!scraping || done) return;
+                    const { x, y } = getXY(e);
+                    ctx.globalCompositeOperation = 'destination-out';
+                    ctx.beginPath();
+                    ctx.arc(x, y, 26, 0, Math.PI * 2);
+                    ctx.fill();
+                    checkDone();
+                }
+
+                function checkDone() {
+                    if (done) return;
+                    const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+                    let t = 0;
+                    for (let i = 3; i < data.length; i += 4) if (data[i] < 128) t++;
+                    if (t / (canvas.width * canvas.height) > 0.55) {
+                        done = true;
+                        canvas.style.transition = 'opacity 0.7s ease';
+                        canvas.style.opacity = '0';
+                        coverLabel.classList.add('hidden');
+                        setTimeout(() => { canvas.style.pointerEvents = 'none'; }, 700);
+                    }
+                }
+
+                canvas.addEventListener('mousedown', () => scraping = true);
+                canvas.addEventListener('mouseup', () => scraping = false);
+                canvas.addEventListener('mouseleave', () => scraping = false);
+                canvas.addEventListener('mousemove', scrape);
+                canvas.addEventListener('touchstart', e => { e.preventDefault(); scraping = true; }, { passive: false });
+                canvas.addEventListener('touchend', () => scraping = false);
+                canvas.addEventListener('touchmove', scrape, { passive: false });
             });
-            p.addEventListener('touchend', () => {
-                p.style.transform = i % 2 === 0 ? 'rotate(-2deg)' : 'rotate(2deg)';
-                p.style.boxShadow = '';
-                p.style.zIndex = '';
-            });
-        });
+        }
+
+        // init personality scratch after a short delay (DOM must be laid out)
+        setTimeout(initPersonalityScratch, 3200);
     </script>
 </body>
 
