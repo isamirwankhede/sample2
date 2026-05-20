@@ -40,191 +40,6 @@
             cursor: default;
         }
 
-        /* ── PASSWORD GATE ── */
-        #password-gate {
-            position: fixed;
-            inset: 0;
-            z-index: 99999;
-            background: radial-gradient(ellipse at 50% 40%, #3d0070 0%, #1a0030 50%, #0d0618 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 24px;
-            padding: 32px;
-            transition: opacity 0.8s ease, visibility 0.8s;
-        }
-
-        #password-gate.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        .gate-emoji {
-            font-size: 72px;
-            animation: floatBounce 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.8));
-        }
-
-        .gate-title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 36px;
-            background: linear-gradient(135deg, #fff 0%, var(--pink) 50%, var(--lavender) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-align: center;
-        }
-
-        .gate-subtitle {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.45);
-            text-align: center;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        .gate-input-wrap {
-            position: relative;
-            width: 100%;
-            max-width: 300px;
-        }
-
-        #gate-input {
-            width: 100%;
-            padding: 16px 52px 16px 20px;
-            border-radius: 100px;
-            background: rgba(255, 255, 255, 0.07);
-            border: 1.5px solid rgba(255, 107, 157, 0.3);
-            color: #fff;
-            font-size: 18px;
-            font-family: 'DM Sans', sans-serif;
-            outline: none;
-            text-align: center;
-            letter-spacing: 3px;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        #gate-input:focus {
-            border-color: var(--pink);
-            box-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
-        }
-
-        #gate-input.error {
-            border-color: #ff4444;
-            box-shadow: 0 0 20px rgba(255, 68, 68, 0.3);
-            animation: shake 0.4s ease;
-        }
-
-        @keyframes shake {
-
-            0%,
-            100% {
-                transform: translateX(0);
-            }
-
-            20% {
-                transform: translateX(-8px);
-            }
-
-            40% {
-                transform: translateX(8px);
-            }
-
-            60% {
-                transform: translateX(-6px);
-            }
-
-            80% {
-                transform: translateX(6px);
-            }
-        }
-
-        .gate-eye-btn {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 18px;
-            cursor: pointer;
-            padding: 4px;
-        }
-
-        #gate-submit {
-            padding: 16px 48px;
-            border-radius: 100px;
-            background: linear-gradient(135deg, var(--pink), var(--purple));
-            border: none;
-            color: #fff;
-            font-size: 16px;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 500;
-            box-shadow: var(--glow-pink);
-            cursor: pointer;
-            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            max-width: 300px;
-        }
-
-        #gate-submit:active {
-            transform: scale(0.95);
-        }
-
-        #gate-submit::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
-            border-radius: 100px;
-        }
-
-        #gate-error {
-            font-size: 13px;
-            color: #ff6b6b;
-            text-align: center;
-            min-height: 20px;
-            letter-spacing: 0.5px;
-            transition: opacity 0.3s;
-            opacity: 0;
-        }
-
-        #gate-error.visible {
-            opacity: 1;
-        }
-
-        .gate-particles {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .gate-star {
-            position: absolute;
-            font-size: 16px;
-            animation: twinkle linear infinite;
-            opacity: 0;
-        }
-
-        @keyframes twinkle {
-
-            0%,
-            100% {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-
-            50% {
-                opacity: 0.6;
-                transform: scale(1.2);
-            }
-        }
-
         /* ── PARTICLES ── */
         #particles {
             position: fixed;
@@ -451,7 +266,7 @@
             background: linear-gradient(to bottom, rgba(255, 107, 157, 0.8), transparent);
         }
 
-        /* ── SECTION 2: MESSAGE ── */
+        /* ── SECTION 2: BIRTHDAY MESSAGE ── */
         #message {
             background: radial-gradient(ellipse at 30% 60%, #2a0050 0%, #0d0618 70%);
         }
@@ -532,7 +347,7 @@
             }
         }
 
-        /* ── SECTION 3: GALLERY ── */
+        /* ── SECTION 3: MEMORY GALLERY ── */
         #gallery {
             background: radial-gradient(ellipse at 70% 30%, #1a003a 0%, #0d0618 70%);
             padding: 40px 20px;
@@ -670,7 +485,6 @@
             gap: 8px;
             padding: 20px;
             text-align: center;
-            z-index: 0;
         }
 
         .scratch-reveal .reward-emoji {
@@ -694,7 +508,6 @@
             border-radius: 20px;
             cursor: crosshair;
             touch-action: none;
-            z-index: 1;
         }
 
         .scratch-hint {
@@ -1039,64 +852,84 @@
             }
         }
 
-        /* ── SCROLL REVEAL ── */
+        /* ── CINEMATIC SCROLL REVEAL ── */
+
+        /* Each child element inside a reel starts hidden */
         .reel [data-reveal] {
             opacity: 0;
             will-change: transform, opacity;
             transition: none;
         }
 
+        /* === REVEAL VARIANTS === */
+
+        /* slide up (default) */
         [data-reveal="up"] {
             transform: translateY(60px) scale(0.96);
         }
 
+        /* slide down */
         [data-reveal="down"] {
             transform: translateY(-50px);
         }
 
+        /* slide left */
         [data-reveal="left"] {
             transform: translateX(70px);
         }
 
+        /* slide right */
         [data-reveal="right"] {
             transform: translateX(-70px);
         }
 
+        /* zoom in */
         [data-reveal="zoom"] {
             transform: scale(0.7);
         }
 
+        /* zoom out */
         [data-reveal="zoom-out"] {
             transform: scale(1.3);
         }
 
+        /* flip */
         [data-reveal="flip"] {
             transform: rotateX(60deg) translateY(30px);
             transform-origin: top center;
         }
 
+        /* rotate in */
         [data-reveal="spin"] {
             transform: rotate(-15deg) translateY(40px) scale(0.85);
         }
 
+        /* blur reveal */
         [data-reveal="blur"] {
             transform: translateY(30px);
             filter: blur(12px);
         }
 
+        /* curtain: clips from bottom */
         [data-reveal="curtain"] {
             transform: translateY(100%);
             clip-path: inset(0 0 100% 0);
         }
 
+        /* Revealed state — smooth ease-out spring */
         [data-reveal].revealed {
             opacity: 1;
             transform: none;
             filter: none;
             clip-path: none;
-            transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease, clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+            transition:
+                opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.6s ease,
+                clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
+        /* Stagger delays via data-delay attribute */
         [data-delay="1"].revealed {
             transition-delay: 0.08s;
         }
@@ -1125,10 +958,12 @@
             transition-delay: 0.80s;
         }
 
+        /* Keep the container itself always visible */
         .reel {
             opacity: 1;
         }
 
+        /* ── AUDIO ── */
         audio {
             display: none;
         }
@@ -1295,6 +1130,7 @@
             font-family: 'DM Sans', sans-serif;
         }
 
+        /* Wish burst */
         #wish-burst {
             flex-direction: column;
             align-items: center;
@@ -1354,7 +1190,7 @@
             }
         }
 
-        /* ── PERSONALITY SCRATCH ── */
+        /* ── PERSONALITY SCRATCH SECTION ── */
         #personality {
             background: radial-gradient(ellipse at 50% 30%, #200045 0%, #0d0618 70%);
         }
@@ -1379,6 +1215,7 @@
             position: relative;
         }
 
+        /* Photo row */
         .p-photo-wrap {
             width: 100%;
             height: 270px;
@@ -1408,6 +1245,7 @@
             display: none;
         }
 
+        /* Scratch layer sits ON TOP of the photo */
         .p-scratch-wrap {
             position: absolute;
             top: 0;
@@ -1425,7 +1263,6 @@
             cursor: crosshair;
             touch-action: none;
             border-radius: 24px 24px 0 0;
-            display: block;
         }
 
         .p-cover-label {
@@ -1447,6 +1284,7 @@
             opacity: 0;
         }
 
+        /* Text reveal below */
         .p-reveal-text {
             padding: 16px 20px 20px;
             display: flex;
@@ -1470,23 +1308,8 @@
 
 <body>
 
-    <!-- ── PASSWORD GATE ── -->
-    <div id="password-gate">
-        <div class="gate-particles" id="gate-particles"></div>
-        <div class="gate-emoji">🔐</div>
-        <div class="gate-title">This is a secret…</div>
-        <div class="gate-subtitle">Enter the password to unlock 💖</div>
-        <div class="gate-input-wrap">
-            <input type="password" id="gate-input" placeholder="✦ ✦ ✦ ✦ ✦" autocomplete="off" autocorrect="off"
-                autocapitalize="off" spellcheck="false" />
-            <button class="gate-eye-btn" id="gate-eye" onclick="toggleEye()">👁️</button>
-        </div>
-        <div id="gate-error">Wrong password. Try again 🙈</div>
-        <button id="gate-submit" onclick="checkPassword()">Unlock 💜</button>
-    </div>
-
     <!-- Loader -->
-    <div id="loader" style="display:none;">
+    <div id="loader">
         <div class="loader-emoji">🎂</div>
         <div class="loader-text">Loading your surprise…</div>
         <div class="loader-bar">
@@ -1512,6 +1335,7 @@
             <div id="countdown-num">5</div>
         </div>
         <div id="countdown-label">Get ready…</div>
+        <!-- Wish burst shown after countdown -->
         <div id="wish-burst" style="display:none;">
             <div id="wish-burst-emoji">🎂</div>
             <div id="wish-burst-text">Happy Birthday</div>
@@ -1545,7 +1369,7 @@
     <!-- Scroll Container -->
     <div id="scroll-container">
 
-        <!-- ★ HERO ★ -->
+        <!-- ★ SECTION 1: HERO ★ -->
         <section class="reel" id="hero">
             <div class="hero-glow"></div>
             <div class="hero-emoji" data-reveal="zoom" data-delay="1">🎂</div>
@@ -1555,7 +1379,7 @@
             <div class="scroll-hint" data-reveal="up" data-delay="5">Swipe up</div>
         </section>
 
-        <!-- ★ MESSAGE ★ -->
+        <!-- ★ SECTION 2: MESSAGE ★ -->
         <section class="reel" id="message" style="padding:32px 20px;">
             <div class="msg-card" data-reveal="flip" data-delay="1">
                 <div class="msg-label">✦ Happiest Birthday, Moyee 🎂</div>
@@ -1567,12 +1391,14 @@
                     in this world 🌸<br><br>
                     Stay strong like a <em>Cadet</em>. Stay cute like a <em>panda</em>. Stay annoying like always 💜
                 </p>
-                <div class="hearts-row"><span>💖</span><span>🐼</span><span>✨</span></div>
+                <div class="hearts-row">
+                    <span>💖</span><span>🐼</span><span>✨</span>
+                </div>
                 <p class="msg-sig">— with all the love, Sam 💌</p>
             </div>
         </section>
 
-        <!-- ★ GALLERY ★ -->
+        <!-- ★ SECTION 3: GALLERY ★ -->
         <section class="reel" id="gallery" style="height:auto;min-height:100vh;">
             <div class="sec-label" data-reveal="down" data-delay="1">✦ Our memories</div>
             <h2 class="sec-title" data-reveal="blur" data-delay="2">Friendship Reels 🎞️</h2>
@@ -1606,11 +1432,12 @@
                 data-reveal="up" data-delay="5">✦ Tap a photo to open memory ✦</p>
         </section>
 
-        <!-- ★ PERSONALITY ★ -->
+        <!-- ★ SECTION 3.5: HER PERSONALITY ★ -->
         <section class="reel" id="personality" style="height:auto;min-height:100vh;padding:50px 20px 60px;">
             <div class="sec-label" data-reveal="down" data-delay="1">✦ Who is Moyee?</div>
             <h2 class="sec-title" data-reveal="blur" data-delay="2">Scratch to Discover Her ✨</h2>
             <div class="personality-list">
+
                 <div class="p-card" data-reveal="up" data-delay="2">
                     <div class="p-photo-wrap">
                         <img src="image1.png" alt="Cute side" class="p-photo" id="pimg-1" style="display:block;">
@@ -1624,6 +1451,7 @@
                         <p>The kind of cute that makes everything around her feel softer and warmer 💕</p>
                     </div>
                 </div>
+
                 <div class="p-card" data-reveal="up" data-delay="3">
                     <div class="p-photo-wrap">
                         <img src="image3.png" alt="Pagal side" class="p-photo" id="pimg-2" style="display:block;">
@@ -1638,6 +1466,7 @@
                         </p>
                     </div>
                 </div>
+
                 <div class="p-card" data-reveal="up" data-delay="4">
                     <div class="p-photo-wrap">
                         <img src="image2.png" alt="Cadet side" class="p-photo" id="pimg-3" style="display:block;">
@@ -1652,6 +1481,7 @@
                         </p>
                     </div>
                 </div>
+
                 <div class="p-card" data-reveal="up" data-delay="5">
                     <div class="p-photo-wrap">
                         <img src="image5.png" alt="Lovely side" class="p-photo" id="pimg-4" style="display:block;">
@@ -1665,6 +1495,7 @@
                         <p>One of the softest, most beautiful souls. Her smile? It literally heals people 🌷</p>
                     </div>
                 </div>
+
                 <div class="p-card" data-reveal="up" data-delay="6">
                     <div class="p-photo-wrap">
                         <img src="image4.png" alt="Caring side" class="p-photo" id="pimg-5" style="display:block;">
@@ -1678,13 +1509,14 @@
                         <p>Always there — for random talks, emotional support, making every memory feel special 🌙</p>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- ★ SCRATCH CARD ★ -->
+        <!-- ★ SECTION 4: SCRATCH CARD ★ -->
         <section class="reel" id="scratch">
             <div class="sec-label" data-reveal="down" data-delay="1">✦ A secret gift</div>
-            <h2 class="sec-title" data-reveal="blur" data-delay="2">Scratch &amp; Reveal 🪄</h2>
+            <h2 class="sec-title" data-reveal="blur" data-delay="2">Scratch & Reveal 🪄</h2>
             <div class="scratch-wrap" data-reveal="zoom" data-delay="3">
                 <div class="scratch-card" id="scratchCardEl">
                     <div class="scratch-reveal">
@@ -1701,13 +1533,15 @@
             </div>
         </section>
 
-        <!-- ★ GIFT BOX ★ -->
+        <!-- ★ SECTION 5: GIFT BOX ★ -->
         <section class="reel" id="giftbox">
             <div class="sec-label" data-reveal="down" data-delay="1">✦ Open your gift</div>
             <h2 class="sec-title" data-reveal="blur" data-delay="2">Tap to Unwrap 🎀</h2>
             <div class="gift-wrap">
                 <div class="gift" id="gift" data-reveal="zoom-out" data-delay="3" onclick="openGift()">
-                    <div class="gift-box">🎁<div class="gift-ribbon"></div>
+                    <div class="gift-box">
+                        🎁
+                        <div class="gift-ribbon"></div>
                     </div>
                 </div>
                 <p class="tap-hint" id="giftHint" data-reveal="up" data-delay="4">✦ tap me ✦</p>
@@ -1731,7 +1565,7 @@
             </div>
         </section>
 
-        <!-- ★ WISHES ★ -->
+        <!-- ★ SECTION 6: BIRTHDAY WISHES ★ -->
         <section class="reel" id="wishes">
             <div class="sec-label" data-reveal="down" data-delay="1">✦ My wishes for you</div>
             <h2 class="sec-title" data-reveal="blur" data-delay="2">For Your Year Ahead 🌟</h2>
@@ -1761,7 +1595,7 @@
             </div>
         </section>
 
-        <!-- ★ FINALE ★ -->
+        <!-- ★ SECTION 7: FINALE ★ -->
         <section class="reel" id="finale">
             <div class="finale-content">
                 <div class="finale-emoji" data-reveal="zoom" data-delay="1">🎊</div>
@@ -1793,114 +1627,31 @@
     </div>
 
     <script>
-        // ── PASSWORD GATE ──
-        const VALID_PASSWORDS = ['moye', 'mohini', 'sam'];
-
-        // Animate gate stars
-        (function () {
-            const container = document.getElementById('gate-particles');
-            const emojis = ['✨', '💖', '🌸', '⭐', '💜', '🎂'];
-            for (let i = 0; i < 18; i++) {
-                const s = document.createElement('div');
-                s.className = 'gate-star';
-                s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                s.style.cssText = `
-                left:${Math.random() * 100}%;
-                top:${Math.random() * 100}%;
-                animation-duration:${2 + Math.random() * 3}s;
-                animation-delay:${Math.random() * 3}s;
-                font-size:${12 + Math.random() * 16}px;
-            `;
-                container.appendChild(s);
-            }
-        })();
-
-        let eyeVisible = false;
-        function toggleEye() {
-            eyeVisible = !eyeVisible;
-            const inp = document.getElementById('gate-input');
-            inp.type = eyeVisible ? 'text' : 'password';
-            document.getElementById('gate-eye').textContent = eyeVisible ? '🙈' : '👁️';
-        }
-
-        function checkPassword() {
-            const val = document.getElementById('gate-input').value.trim().toLowerCase();
-            const errEl = document.getElementById('gate-error');
-            if (VALID_PASSWORDS.includes(val)) {
-                // Correct!
-                errEl.classList.remove('visible');
-                document.getElementById('password-gate').classList.add('hidden');
-                // Show loader then start experience
-                const loader = document.getElementById('loader');
-                loader.style.display = 'flex';
-                // restart loader bar animation
-                const fill = loader.querySelector('.loader-fill');
-                fill.style.animation = 'none';
-                void fill.offsetWidth;
-                fill.style.animation = 'loadFill 2s ease forwards';
-                // Try to play music immediately after user gesture (password submit)
-                tryPlayMusic();
-                setTimeout(() => {
-                    loader.classList.add('hidden');
-                    startCountdown();
-                }, 2200);
-            } else {
-                const inp = document.getElementById('gate-input');
-                inp.classList.add('error');
-                errEl.classList.add('visible');
-                setTimeout(() => { inp.classList.remove('error'); inp.value = ''; }, 600);
-            }
-        }
-
-        // Allow Enter key on password input
-        document.getElementById('gate-input').addEventListener('keydown', function (e) {
-            if (e.key === 'Enter') checkPassword();
+        // ── LOADER → COUNTDOWN → WISH → SITE ──
+        window.addEventListener('load', () => {
+            // Step 1: loader for 2s then hand off to countdown
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+                startCountdown();
+            }, 2200);
         });
 
-        // ── MUSIC ──
-        let musicStarted = false;
-        function tryPlayMusic() {
-            if (musicStarted) return;
-            musicStarted = true;
-            const audio = document.getElementById('bgMusic');
-            audio.volume = 0.35;
-            audio.play().then(() => {
-                document.getElementById('musicBtn').textContent = '🔊';
-            }).catch(() => {
-                musicStarted = false; // allow retry
-            });
-        }
-
-        function toggleMusic() {
-            const audio = document.getElementById('bgMusic');
-            const btn = document.getElementById('musicBtn');
-            if (audio.paused) {
-                audio.volume = 0.35;
-                audio.play().catch(() => { });
-                btn.textContent = '🔊';
-                musicStarted = true;
-            } else {
-                audio.pause();
-                btn.textContent = '🎵';
-            }
-        }
-
-        // ── LOADER → COUNTDOWN → WISH → SITE ──
         function startCountdown() {
             const overlay = document.getElementById('countdown-overlay');
             const numEl = document.getElementById('countdown-num');
             const label = document.getElementById('countdown-label');
             const arc = document.getElementById('countdown-arc');
-            const FULL = 326.7;
+            const FULL = 326.7; // 2π × r = 2π × 52
             overlay.classList.add('active');
 
             let count = 5;
             const labels = ['Get ready…', 'Almost there…', 'So close…', 'Any second now…', 'Here it comes…'];
 
             function tick() {
+                // update arc (drains as count goes down)
                 arc.style.strokeDashoffset = FULL * (1 - count / 5);
                 numEl.classList.remove('num-exit');
-                void numEl.offsetWidth;
+                void numEl.offsetWidth; // reflow to re-trigger
                 numEl.style.animation = 'none';
                 void numEl.offsetWidth;
                 numEl.style.animation = 'numPop 0.35s cubic-bezier(0.34,1.56,0.64,1)';
@@ -1908,10 +1659,12 @@
                 label.textContent = labels[5 - count] || 'Get ready…';
             }
 
-            tick();
+            tick(); // show 5 immediately
 
             const interval = setInterval(() => {
+                // exit anim on current number
                 numEl.classList.add('num-exit');
+
                 setTimeout(() => {
                     count--;
                     if (count === 0) {
@@ -1932,6 +1685,7 @@
             const arc = document.getElementById('countdown-arc');
             const overlay = document.getElementById('countdown-overlay');
 
+            // hide ring + label, show burst
             numEl.style.display = 'none';
             label.style.display = 'none';
             ring.style.display = 'none';
@@ -1939,13 +1693,13 @@
             burst.style.display = 'flex';
             launchConfetti();
 
+            // after 2.2s fade out overlay and reveal main site
             setTimeout(() => {
                 overlay.classList.add('fade-out');
                 setTimeout(() => {
                     overlay.style.display = 'none';
                     startParticles();
                     initIntersect();
-                    initAllScratch();
                 }, 900);
             }, 2200);
         }
@@ -1959,22 +1713,23 @@
                 p.className = 'particle';
                 const size = Math.random() * 8 + 3;
                 p.style.cssText = `
-                width:${size}px;height:${size}px;
-                left:${Math.random() * 100}%;
-                background:${colors[Math.floor(Math.random() * colors.length)]};
-                animation-duration:${Math.random() * 10 + 6}s;
-                animation-delay:${Math.random() * 6}s;
-                opacity:0;
-            `;
+      width:${size}px;height:${size}px;
+      left:${Math.random() * 100}%;
+      background:${colors[Math.floor(Math.random() * colors.length)]};
+      animation-duration:${Math.random() * 10 + 6}s;
+      animation-delay:${Math.random() * 6}s;
+      opacity:0;
+    `;
                 container.appendChild(p);
             }
         }
 
-        // ── SCROLL REVEAL ──
+        // ── CINEMATIC SCROLL REVEAL ──
         function initIntersect() {
             const reels = document.querySelectorAll('.reel');
             const dots = document.querySelectorAll('.nav-dot');
 
+            // Nav dot tracker
             const navObs = new IntersectionObserver((entries) => {
                 entries.forEach(e => {
                     if (e.isIntersecting) {
@@ -1986,6 +1741,7 @@
 
             reels.forEach(r => navObs.observe(r));
 
+            // Reveal observer — triggers when element enters viewport
             const revealObs = new IntersectionObserver((entries) => {
                 entries.forEach(e => {
                     if (e.isIntersecting) {
@@ -1995,8 +1751,10 @@
                 });
             }, { threshold: 0.15, root: document.getElementById('scroll-container') });
 
+            // Observe all [data-reveal] elements
             document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
 
+            // Hero fires immediately on load (already in view)
             setTimeout(() => {
                 document.querySelectorAll('#hero [data-reveal]').forEach(el => el.classList.add('revealed'));
             }, 300);
@@ -2010,6 +1768,30 @@
             container.scrollTo({ top: offset, behavior: 'smooth' });
         }
 
+        // ── MUSIC ──
+        let musicStarted = false;
+        function toggleMusic() {
+            const audio = document.getElementById('bgMusic');
+            const btn = document.getElementById('musicBtn');
+            if (audio.paused) {
+                audio.volume = 0.35;
+                audio.play().catch(() => { });
+                btn.textContent = '🔊';
+            } else {
+                audio.pause();
+                btn.textContent = '🎵';
+            }
+        }
+        document.addEventListener('touchstart', () => {
+            if (!musicStarted) {
+                musicStarted = true;
+                const audio = document.getElementById('bgMusic');
+                audio.volume = 0.35;
+                audio.play().catch(() => { });
+                document.getElementById('musicBtn').textContent = '🔊';
+            }
+        }, { once: true });
+
         // ── RIPPLE ──
         document.addEventListener('touchstart', (e) => {
             const r = document.createElement('div');
@@ -2021,188 +1803,78 @@
             setTimeout(() => r.remove(), 700);
         });
 
-        // ── MAIN SCRATCH CARD ──
-        let mainScratchInited = false;
-        function initMainScratch() {
-            if (mainScratchInited) return;
-            mainScratchInited = true;
-            const canvas = document.getElementById('scratchCanvas');
-            const cardEl = document.getElementById('scratchCardEl');
-            const ctx = canvas.getContext('2d');
-            let scratchDone = false;
+        // ── SCRATCH CARD ──
+        const canvas = document.getElementById('scratchCanvas');
+        const ctx = canvas.getContext('2d');
+        const cardEl = document.getElementById('scratchCardEl');
+        let scratchedPercent = 0;
+        let scratchDone = false;
 
-            canvas.width = cardEl.offsetWidth || 280;
-            canvas.height = cardEl.offsetHeight || 160;
-
+        function initScratch() {
+            canvas.width = cardEl.offsetWidth;
+            canvas.height = cardEl.offsetHeight;
             const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
             grad.addColorStop(0, '#7c3aed');
             grad.addColorStop(0.5, '#be185d');
             grad.addColorStop(1, '#6d28d9');
             ctx.fillStyle = grad;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = 'rgba(255,255,255,0.15)';
-            ctx.font = '20px Arial';
+            ctx.fillStyle = 'rgba(255,255,255,0.1)';
+            ctx.font = '18px Arial';
             ctx.textAlign = 'center';
             for (let i = 0; i < 5; i++) {
                 for (let j = 0; j < 3; j++) {
-                    ctx.fillText('✨', 28 + i * 50, 28 + j * 50);
-                }
-            }
-            // Add hint text
-            ctx.fillStyle = 'rgba(255,255,255,0.5)';
-            ctx.font = '600 13px DM Sans, sans-serif';
-            ctx.textBaseline = 'middle';
-            ctx.fillText('✦ Scratch here ✦', canvas.width / 2, canvas.height / 2);
-
-            function getPos(e) {
-                const rect = canvas.getBoundingClientRect();
-                const scaleX = canvas.width / rect.width;
-                const scaleY = canvas.height / rect.height;
-                if (e.touches) {
-                    return {
-                        x: (e.touches[0].clientX - rect.left) * scaleX,
-                        y: (e.touches[0].clientY - rect.top) * scaleY
-                    };
-                }
-                return {
-                    x: (e.clientX - rect.left) * scaleX,
-                    y: (e.clientY - rect.top) * scaleY
-                };
-            }
-
-            let scratching = false;
-
-            canvas.addEventListener('mousedown', (e) => { e.preventDefault(); scratching = true; doScratch(e); });
-            canvas.addEventListener('mouseup', () => scratching = false);
-            canvas.addEventListener('mouseleave', () => scratching = false);
-            canvas.addEventListener('touchstart', (e) => { e.preventDefault(); scratching = true; doScratch(e); }, { passive: false });
-            canvas.addEventListener('touchend', () => scratching = false);
-            canvas.addEventListener('mousemove', (e) => { if (scratching) doScratch(e); });
-            canvas.addEventListener('touchmove', (e) => { e.preventDefault(); if (scratching) doScratch(e); }, { passive: false });
-
-            function doScratch(e) {
-                if (scratchDone) return;
-                const pos = getPos(e);
-                ctx.globalCompositeOperation = 'destination-out';
-                ctx.beginPath();
-                ctx.arc(pos.x, pos.y, 24, 0, Math.PI * 2);
-                ctx.fill();
-                checkReveal();
-            }
-
-            function checkReveal() {
-                if (scratchDone) return;
-                const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-                let transparent = 0;
-                for (let i = 3; i < data.length; i += 4) if (data[i] < 128) transparent++;
-                const pct = (transparent / (canvas.width * canvas.height)) * 100;
-                document.getElementById('scratchBar').style.width = Math.min(100, pct) + '%';
-                if (pct > 55) {
-                    scratchDone = true;
-                    canvas.style.transition = 'opacity 0.8s';
-                    canvas.style.opacity = '0';
-                    setTimeout(() => { canvas.style.pointerEvents = 'none'; }, 800);
-                    document.getElementById('scratchHint').textContent = '✦ You unlocked your gift! 🎁 ✦';
-                    launchConfetti();
+                    ctx.fillText('✨', 30 + i * 50, 30 + j * 50);
                 }
             }
         }
 
-        // ── PERSONALITY SCRATCH CARDS ──
-        const pConfigs = [
-            { grad: ['#be185d', '#7c3aed'], label: '✨ Cute 🌸' },
-            { grad: ['#7c3aed', '#ec4899'], label: '✨ Pagal 🤪' },
-            { grad: ['#1d4ed8', '#7c3aed'], label: '✨ Cadet 🎖️' },
-            { grad: ['#db2777', '#a21caf'], label: '✨ Lovely 💖' },
-            { grad: ['#059669', '#7c3aed'], label: '✨ Caring 🤗' },
-        ];
+        setTimeout(initScratch, 2500);
 
-        function initPersonalityScratch() {
-            document.querySelectorAll('.p-canvas').forEach((canvas, idx) => {
-                const wrap = canvas.closest('.p-scratch-wrap');
-                const card = canvas.closest('.p-card');
-                const photoWrap = card.querySelector('.p-photo-wrap');
-                const coverLabel = wrap.querySelector('.p-cover-label');
-                const cfg = pConfigs[idx];
-
-                const W = photoWrap.offsetWidth || 340;
-                const H = 270;
-                canvas.width = W;
-                canvas.height = H;
-
-                const ctx = canvas.getContext('2d');
-                const grad = ctx.createLinearGradient(0, 0, W, H);
-                grad.addColorStop(0, cfg.grad[0]);
-                grad.addColorStop(1, cfg.grad[1]);
-                ctx.fillStyle = grad;
-                ctx.fillRect(0, 0, W, H);
-
-                ctx.fillStyle = 'rgba(255,255,255,0.45)';
-                ctx.font = '600 13px DM Sans, sans-serif';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText(cfg.label, W / 2, H / 2);
-
-                let scraping = false;
-                let done = false;
-
-                function getXY(e) {
-                    const r = canvas.getBoundingClientRect();
-                    const scaleX = canvas.width / r.width;
-                    const scaleY = canvas.height / r.height;
-                    if (e.touches) return {
-                        x: (e.touches[0].clientX - r.left) * scaleX,
-                        y: (e.touches[0].clientY - r.top) * scaleY
-                    };
-                    return {
-                        x: (e.clientX - r.left) * scaleX,
-                        y: (e.clientY - r.top) * scaleY
-                    };
-                }
-
-                function scrape(e) {
-                    e.preventDefault(); e.stopPropagation();
-                    if (!scraping || done) return;
-                    const { x, y } = getXY(e);
-                    ctx.globalCompositeOperation = 'destination-out';
-                    ctx.beginPath();
-                    ctx.arc(x, y, 28, 0, Math.PI * 2);
-                    ctx.fill();
-                    checkDone();
-                }
-
-                function checkDone() {
-                    if (done) return;
-                    const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-                    let t = 0;
-                    for (let i = 3; i < data.length; i += 4) if (data[i] < 128) t++;
-                    if (t / (canvas.width * canvas.height) > 0.5) {
-                        done = true;
-                        canvas.style.transition = 'opacity 0.7s ease';
-                        canvas.style.opacity = '0';
-                        coverLabel.classList.add('hidden');
-                        setTimeout(() => { canvas.style.pointerEvents = 'none'; }, 700);
-                    }
-                }
-
-                canvas.addEventListener('mousedown', (e) => { e.preventDefault(); scraping = true; scrape(e); });
-                canvas.addEventListener('mouseup', () => scraping = false);
-                canvas.addEventListener('mouseleave', () => scraping = false);
-                canvas.addEventListener('mousemove', scrape);
-                canvas.addEventListener('touchstart', (e) => { e.preventDefault(); scraping = true; scrape(e); }, { passive: false });
-                canvas.addEventListener('touchend', () => scraping = false);
-                canvas.addEventListener('touchmove', scrape, { passive: false });
-            });
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            if (e.touches) {
+                return { x: e.touches[0].clientX - rect.left, y: e.touches[0].clientY - rect.top };
+            }
+            return { x: e.clientX - rect.left, y: e.clientY - rect.top };
         }
 
-        function initAllScratch() {
-            // Use requestAnimationFrame to ensure DOM is fully painted before measuring
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    initMainScratch();
-                    initPersonalityScratch();
-                });
-            });
+        let scratching = false;
+        canvas.addEventListener('mousedown', () => scratching = true);
+        canvas.addEventListener('mouseup', () => scratching = false);
+        canvas.addEventListener('touchstart', (e) => { e.preventDefault(); scratching = true; }, { passive: false });
+        canvas.addEventListener('touchend', () => scratching = false);
+
+        function scratch(e) {
+            e.preventDefault();
+            if (!scratching && e.type !== 'touchmove') return;
+            if (e.type === 'touchmove') e.preventDefault();
+            const pos = getPos(e);
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, 22, 0, Math.PI * 2);
+            ctx.fill();
+            checkReveal();
+        }
+
+        canvas.addEventListener('mousemove', scratch);
+        canvas.addEventListener('touchmove', scratch, { passive: false });
+
+        function checkReveal() {
+            if (scratchDone) return;
+            const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+            let transparent = 0;
+            for (let i = 3; i < data.length; i += 4) if (data[i] < 128) transparent++;
+            const pct = (transparent / (canvas.width * canvas.height)) * 100;
+            scratchedPercent = Math.min(100, pct);
+            document.getElementById('scratchBar').style.width = scratchedPercent + '%';
+            if (scratchedPercent > 55 && !scratchDone) {
+                scratchDone = true;
+                canvas.style.transition = 'opacity 0.8s';
+                canvas.style.opacity = '0';
+                document.getElementById('scratchHint').textContent = '✦ You unlocked your gift! 🎁 ✦';
+                launchConfetti();
+            }
         }
 
         // ── MEMORY MODAL ──
@@ -2210,7 +1882,8 @@
             document.getElementById('memEmoji').textContent = emoji;
             document.getElementById('memTitle').textContent = title;
             document.getElementById('memMsg').textContent = msg;
-            document.getElementById('memModal').style.display = 'flex';
+            const modal = document.getElementById('memModal');
+            modal.style.display = 'flex';
         }
         function closeMemory() {
             document.getElementById('memModal').style.display = 'none';
@@ -2244,14 +1917,14 @@
                     c.className = 'confetti-piece';
                     const size = Math.random() * 10 + 6;
                     c.style.cssText = `
-                    width:${size}px;height:${Math.random() * 12 + 4}px;
-                    left:${Math.random() * 100}vw;
-                    background:${colors[Math.floor(Math.random() * colors.length)]};
-                    animation-duration:${Math.random() * 2 + 1.5}s;
-                    transform:rotate(${Math.random() * 360}deg);
-                    top:-20px;
-                    border-radius:${Math.random() > 0.5 ? '50%' : '2px'};
-                `;
+        width:${size}px;height:${Math.random() * 12 + 4}px;
+        left:${Math.random() * 100}vw;
+        background:${colors[Math.floor(Math.random() * colors.length)]};
+        animation-duration:${Math.random() * 2 + 1.5}s;
+        transform:rotate(${Math.random() * 360}deg);
+        top:-20px;
+        border-radius:${Math.random() > 0.5 ? '50%' : '2px'};
+      `;
                     document.body.appendChild(c);
                     setTimeout(() => c.remove(), 3000);
                 }, i * 40);
@@ -2264,6 +1937,90 @@
             setTimeout(launchConfetti, 400);
             setTimeout(launchConfetti, 800);
         }
+
+
+        // ── PERSONALITY SCRATCH CARDS ──
+        const pConfigs = [
+            { grad: ['#be185d', '#7c3aed'], label: '✨ Cute 🌸' },
+            { grad: ['#7c3aed', '#ec4899'], label: '✨ Pagal 🤪' },
+            { grad: ['#1d4ed8', '#7c3aed'], label: '✨ Cadet 🎖️' },
+            { grad: ['#db2777', '#a21caf'], label: '✨ Lovely 💖' },
+            { grad: ['#059669', '#7c3aed'], label: '✨ Caring 🤗' },
+        ];
+
+        function initPersonalityScratch() {
+            document.querySelectorAll('.p-canvas').forEach((canvas, idx) => {
+                const wrap = canvas.closest('.p-scratch-wrap');
+                const card = canvas.closest('.p-card');
+                const photoWrap = card.querySelector('.p-photo-wrap');
+                const coverLabel = wrap.querySelector('.p-cover-label');
+                const cfg = pConfigs[idx];
+
+                // size canvas to photo wrap
+                const W = photoWrap.offsetWidth || 340;
+                const H = 180;
+                canvas.width = W; canvas.height = H;
+
+                const ctx = canvas.getContext('2d');
+                const grad = ctx.createLinearGradient(0, 0, W, H);
+                grad.addColorStop(0, cfg.grad[0]);
+                grad.addColorStop(1, cfg.grad[1]);
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, W, H);
+
+                // label text on scratch layer
+                ctx.fillStyle = 'rgba(255,255,255,0.45)';
+                ctx.font = '600 13px DM Sans, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(cfg.label, W / 2, H / 2);
+
+                let scraping = false;
+                let done = false;
+
+                function getXY(e) {
+                    const r = canvas.getBoundingClientRect();
+                    if (e.touches) return { x: e.touches[0].clientX - r.left, y: e.touches[0].clientY - r.top };
+                    return { x: e.clientX - r.left, y: e.clientY - r.top };
+                }
+
+                function scrape(e) {
+                    e.preventDefault(); e.stopPropagation();
+                    if (!scraping || done) return;
+                    const { x, y } = getXY(e);
+                    ctx.globalCompositeOperation = 'destination-out';
+                    ctx.beginPath();
+                    ctx.arc(x, y, 26, 0, Math.PI * 2);
+                    ctx.fill();
+                    checkDone();
+                }
+
+                function checkDone() {
+                    if (done) return;
+                    const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+                    let t = 0;
+                    for (let i = 3; i < data.length; i += 4) if (data[i] < 128) t++;
+                    if (t / (canvas.width * canvas.height) > 0.55) {
+                        done = true;
+                        canvas.style.transition = 'opacity 0.7s ease';
+                        canvas.style.opacity = '0';
+                        coverLabel.classList.add('hidden');
+                        setTimeout(() => { canvas.style.pointerEvents = 'none'; }, 700);
+                    }
+                }
+
+                canvas.addEventListener('mousedown', () => scraping = true);
+                canvas.addEventListener('mouseup', () => scraping = false);
+                canvas.addEventListener('mouseleave', () => scraping = false);
+                canvas.addEventListener('mousemove', scrape);
+                canvas.addEventListener('touchstart', e => { e.preventDefault(); scraping = true; }, { passive: false });
+                canvas.addEventListener('touchend', () => scraping = false);
+                canvas.addEventListener('touchmove', scrape, { passive: false });
+            });
+        }
+
+        // init personality scratch after a short delay (DOM must be laid out)
+        setTimeout(initPersonalityScratch, 3200);
     </script>
 </body>
 
