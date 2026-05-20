@@ -1369,7 +1369,6 @@
             z-index: 1;
         }
 
-        /* Full-card scratch: card is the relative container, scratch covers everything */
         .p-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 107, 157, 0.18);
@@ -1378,19 +1377,17 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            /* scratch overlay anchors here */
         }
 
         .p-photo-wrap {
             width: 100%;
-            height: 220px;
+            height: 270px;
             background: linear-gradient(135deg, #2d1050, #1a0030);
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            flex-shrink: 0;
         }
 
         .p-photo {
@@ -1411,25 +1408,23 @@
             display: none;
         }
 
-        /* Scratch wrap covers the ENTIRE card (photo + text), anchored to .p-card */
         .p-scratch-wrap {
             position: absolute;
-            inset: 0;
-            /* top:0 left:0 right:0 bottom:0 — full card */
-            border-radius: 24px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 270px;
+            border-radius: 24px 24px 0 0;
             overflow: hidden;
             pointer-events: auto;
-            z-index: 10;
         }
 
         .p-canvas {
             position: absolute;
             inset: 0;
-            width: 100%;
-            height: 100%;
             cursor: crosshair;
             touch-action: none;
-            border-radius: 24px;
+            border-radius: 24px 24px 0 0;
             display: block;
         }
 
@@ -1437,22 +1432,15 @@
             position: absolute;
             inset: 0;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 8px;
             font-size: 13px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.5);
             pointer-events: none;
             font-family: 'DM Sans', sans-serif;
             transition: opacity 0.4s;
-        }
-
-        .p-cover-label .scratch-finger {
-            font-size: 28px;
-            animation: floatBounce 1.8s ease-in-out infinite;
         }
 
         .p-cover-label.hidden {
@@ -1623,95 +1611,73 @@
             <div class="sec-label" data-reveal="down" data-delay="1">✦ Who is Moyee?</div>
             <h2 class="sec-title" data-reveal="blur" data-delay="2">Scratch to Discover Her ✨</h2>
             <div class="personality-list">
-
                 <div class="p-card" data-reveal="up" data-delay="2">
                     <div class="p-photo-wrap">
-                        <img src="image1.png" alt="Cute side" class="p-photo">
+                        <img src="image1.png" alt="Cute side" class="p-photo" id="pimg-1" style="display:block;">
+                    </div>
+                    <div class="p-scratch-wrap">
+                        <canvas class="p-canvas" data-index="0"></canvas>
+                        <div class="p-cover-label">Scratch me ✨</div>
                     </div>
                     <div class="p-reveal-text">
                         <span class="p-tag">Cute 🌸</span>
                         <p>The kind of cute that makes everything around her feel softer and warmer 💕</p>
                     </div>
-                    <!-- scratch covers FULL card -->
-                    <div class="p-scratch-wrap">
-                        <canvas class="p-canvas" data-index="0"></canvas>
-                        <div class="p-cover-label">
-                            <span class="scratch-finger">👆</span>
-                            <span>Scratch me ✨</span>
-                        </div>
-                    </div>
                 </div>
-
                 <div class="p-card" data-reveal="up" data-delay="3">
                     <div class="p-photo-wrap">
-                        <img src="image3.png" alt="Pagal side" class="p-photo">
+                        <img src="image3.png" alt="Pagal side" class="p-photo" id="pimg-2" style="display:block;">
+                    </div>
+                    <div class="p-scratch-wrap">
+                        <canvas class="p-canvas" data-index="1"></canvas>
+                        <div class="p-cover-label">Scratch me ✨</div>
                     </div>
                     <div class="p-reveal-text">
                         <span class="p-tag">Pagal 🤪</span>
                         <p>Mature for exactly 2 minutes, then completely unhinged — and honestly that's the best part 😂
                         </p>
                     </div>
-                    <div class="p-scratch-wrap">
-                        <canvas class="p-canvas" data-index="1"></canvas>
-                        <div class="p-cover-label">
-                            <span class="scratch-finger">👆</span>
-                            <span>Scratch me ✨</span>
-                        </div>
-                    </div>
                 </div>
-
                 <div class="p-card" data-reveal="up" data-delay="4">
                     <div class="p-photo-wrap">
-                        <img src="image2.png" alt="Cadet side" class="p-photo">
+                        <img src="image2.png" alt="Cadet side" class="p-photo" id="pimg-3" style="display:block;">
+                    </div>
+                    <div class="p-scratch-wrap">
+                        <canvas class="p-canvas" data-index="2"></canvas>
+                        <div class="p-cover-label">Scratch me ✨</div>
                     </div>
                     <div class="p-reveal-text">
                         <span class="p-tag">Cadet 🎖️</span>
                         <p>Strong, disciplined, brave — she wears it all with grace. A true cadet through and through 💪
                         </p>
                     </div>
-                    <div class="p-scratch-wrap">
-                        <canvas class="p-canvas" data-index="2"></canvas>
-                        <div class="p-cover-label">
-                            <span class="scratch-finger">👆</span>
-                            <span>Scratch me ✨</span>
-                        </div>
-                    </div>
                 </div>
-
                 <div class="p-card" data-reveal="up" data-delay="5">
                     <div class="p-photo-wrap">
-                        <img src="image5.png" alt="Lovely side" class="p-photo">
+                        <img src="image5.png" alt="Lovely side" class="p-photo" id="pimg-4" style="display:block;">
+                    </div>
+                    <div class="p-scratch-wrap">
+                        <canvas class="p-canvas" data-index="3"></canvas>
+                        <div class="p-cover-label">Scratch me ✨</div>
                     </div>
                     <div class="p-reveal-text">
                         <span class="p-tag">Lovely 💖</span>
                         <p>One of the softest, most beautiful souls. Her smile? It literally heals people 🌷</p>
                     </div>
-                    <div class="p-scratch-wrap">
-                        <canvas class="p-canvas" data-index="3"></canvas>
-                        <div class="p-cover-label">
-                            <span class="scratch-finger">👆</span>
-                            <span>Scratch me ✨</span>
-                        </div>
-                    </div>
                 </div>
-
                 <div class="p-card" data-reveal="up" data-delay="6">
                     <div class="p-photo-wrap">
-                        <img src="image4.png" alt="Caring side" class="p-photo">
+                        <img src="image4.png" alt="Caring side" class="p-photo" id="pimg-5" style="display:block;">
+                    </div>
+                    <div class="p-scratch-wrap">
+                        <canvas class="p-canvas" data-index="4"></canvas>
+                        <div class="p-cover-label">Scratch me ✨</div>
                     </div>
                     <div class="p-reveal-text">
                         <span class="p-tag">Caring 🤗</span>
                         <p>Always there — for random talks, emotional support, making every memory feel special 🌙</p>
                     </div>
-                    <div class="p-scratch-wrap">
-                        <canvas class="p-canvas" data-index="4"></canvas>
-                        <div class="p-cover-label">
-                            <span class="scratch-finger">👆</span>
-                            <span>Scratch me ✨</span>
-                        </div>
-                    </div>
                 </div>
-
             </div>
         </section>
 
